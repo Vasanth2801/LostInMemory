@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Flip();
+        HandleAnimations();
     }
 
     private void FixedUpdate()
@@ -109,6 +110,20 @@ public class Player : MonoBehaviour
     void CheckGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayerMask);
+    }
+
+    void HandleAnimations()
+    {
+        animator.SetBool("isIdle", Mathf.Abs(moveInput.x) < 0.1f && isGrounded);
+
+        animator.SetBool("isWalking", Mathf.Abs(moveInput.x) > 0.1f && isGrounded);
+
+        animator.SetBool("isJumping",rb.linearVelocity.y >0.1f);
+
+        animator.SetBool("isGrounded", isGrounded);
+
+        animator.SetFloat("yVelocity", rb.linearVelocity.y);
+
     }
 
     void Flip()
