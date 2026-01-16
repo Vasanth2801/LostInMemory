@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
 
         animator.SetBool("isWalking", isMoving && !runPressed);
 
-        animator.SetBool("isRunning", isMoving && runPressed);
+         animator.SetBool("isRunning", isMoving && runPressed);
 
         animator.SetBool("isJumping",rb.linearVelocity.y >0.1f);
 
