@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float speed = 5f;
+    public float walkSpeed = 5f;
+    public float runSpeed = 8f;
     public int facingDirection = 1;
 
     [Header("References")]
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
 
     [Header("Inputs")]
     public Vector2 moveInput;
+    private bool runPressed;
 
     private void Start()
     {
@@ -66,10 +68,16 @@ public class Player : MonoBehaviour
             jumpReleased = true;
         }
     }
+
+    public void OnRun(InputValue value)
+    {
+        runPressed = value.isPressed;
+    }
     
     void HandleMovement()
     {
-        float targetSpeed = moveInput.x * speed;
+        float currentSpeed = runPressed ? runSpeed : walkSpeed;
+        float targetSpeed = moveInput.x * currentSpeed;
         rb.linearVelocity = new Vector2(targetSpeed, rb.linearVelocity.y);
     }
 
@@ -114,9 +122,13 @@ public class Player : MonoBehaviour
 
     void HandleAnimations()
     {
-        animator.SetBool("isIdle", Mathf.Abs(moveInput.x) < 0.1f && isGrounded);
+        bool isMoving = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
 
-        animator.SetBool("isWalking", Mathf.Abs(moveInput.x) > 0.1f && isGrounded);
+        animator.SetBool("isIdle", !isMoving && isGrounded);
+
+        animator.SetBool("isWalking", isMoving && !runPressed);
+
+        animator.SetBool("isRunning", isMoving && runPressed);
 
         animator.SetBool("isJumping",rb.linearVelocity.y >0.1f);
 

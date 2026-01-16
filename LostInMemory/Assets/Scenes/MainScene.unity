@@ -1659,7 +1659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4384b6db3c16454d96ac01f14fb8f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  speed: 5
+  walkSpeed: 5
+  runSpeed: 9
   facingDirection: 1
   playerInput: {fileID: 1603056848}
   rb: {fileID: 1603056849}
