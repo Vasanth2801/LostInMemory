@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCrouch : PlayerState
 {
-    public PlayerCrouch(Player player) : base(player) { }
+    public PlayerCrouch(Player player) : base(player) {  }
 
     public override void Enter()
     {
@@ -30,9 +30,9 @@ public class PlayerCrouch : PlayerState
     {
         base.FixedUpdate();
 
-        if(Mathf.Abs(MoveInput.y) > 0.1f)
+        if(Mathf.Abs(MoveInput.x) > 0.1f)
         {
-            rb.linearVelocity = new Vector2(player.facingDirection * player.walkSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(player.facingDirection * player.walkSpeed,rb.linearVelocity.y);
         }
         else
         {

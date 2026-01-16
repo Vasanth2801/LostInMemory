@@ -1,11 +1,12 @@
 using UnityEngine;
-
 public class PlayerSlide : PlayerState
 {
+
     private float slideTimer;
     private float slideStopTimer;
 
     public PlayerSlide(Player player) : base(player) { }
+
 
     public override void Enter()
     {
@@ -21,11 +22,11 @@ public class PlayerSlide : PlayerState
     {
         base.Update();
 
-        if (slideTimer > 0)
+        if(slideTimer > 0)
         {
             slideTimer -= Time.deltaTime;
         }
-        else if (slideStopTimer <= 0)
+        else if(slideStopTimer > 0)
         {
             slideStopTimer = player.slideStopDuration;
         }
@@ -35,7 +36,7 @@ public class PlayerSlide : PlayerState
 
             if(slideStopTimer <= 0)
             {
-                if(player.CheckCieling() || MoveInput.y < -0.1f)
+                if(player.CheckCieling() || MoveInput.y <= -0.1f)
                 {
                     player.ChangeState(player.crouchState);
                 }

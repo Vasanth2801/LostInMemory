@@ -26,6 +26,10 @@ public class PlayerIdle : PlayerState
         {
             player.ChangeState(player.moveState);
         }
+        else if(MoveInput.y < -0.1f)
+        {
+            player.ChangeState(player.crouchState);
+        }
     }
 
     public override void Exit()
