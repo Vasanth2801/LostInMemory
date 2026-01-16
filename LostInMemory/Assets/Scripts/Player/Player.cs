@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     public PlayerIdle idleState;
 
+    public PlayerMove moveState;
+
 
 
 
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public float groundRadius;
     public LayerMask groundLayerMask;
-    [SerializeField] bool isGrounded;
+    public bool isGrounded;
 
     [Header("SlideSettings")]
     [SerializeField] private float slideDuration = 0.5f;
