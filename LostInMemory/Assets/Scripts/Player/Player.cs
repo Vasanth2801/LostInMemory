@@ -3,6 +3,23 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [Header("PLayer Modular States")]
+
+    public PlayerState currentState;
+
+    public PlayerIdle idleState;
+
+
+
+
+
+
+
+
+
+
+
+
     [Header("Movement Settings")]
     public float walkSpeed = 5f;
     public float runSpeed = 8f;
@@ -20,8 +37,6 @@ public class Player : MonoBehaviour
     public float normalGravity;
     public float fallGravity;
     public float jumpGravity;
-    [SerializeField] bool jumpPressed;
-    [SerializeField] bool jumpReleased;
 
     [Header("GroundCheckSettings")]
     public Transform groundCheck;
@@ -32,24 +47,36 @@ public class Player : MonoBehaviour
     [Header("SlideSettings")]
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float slideSpeed = 12f;
-    [SerializeField] private bool isSliding = false;
+    [SerializeField] private float slideStopDuration = 0.2f;
+    
     private float slideHeight;
-    private float slideTimer;
     public float normalHeight;
     public Vector2 normalOffset;
     public Vector2 slideOffset;
 
+    [SerializeField] private bool isSliding = false;
+
+    [Header("Crouch Settings")]
+    [SerializeField] Transform ceilingCheck;
+    [SerializeField] private float ceilingCheckRadius = 0.2f;
+
     [Header("Inputs")]
     public Vector2 moveInput;
-    private bool runPressed;
+    public bool runPressed;
+    public bool jumpPressed;
+    public bool jumpReleased;
 
     private void Start()
     {
         rb.gravityScale = normalGravity;
+
+        
     }
 
     void Update()
     {
+        currentState.Update();
+
         Flip();
         HandleAnimations();
         HandleSlide();
@@ -57,6 +84,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        currentState.FixedUpdate();
+
         ApplyGravity();
         CheckGrounded();
 
@@ -66,6 +95,17 @@ public class Player : MonoBehaviour
         }
 
         HandleJump();
+    }
+
+    public void ChangeState(PlayerState newState)
+    {
+        if(currentState != null)
+        {
+            currentState.Exit();
+        }
+
+        currentState = newState;
+        currentState.Enter();   
     }
 
     public void OnMove(InputValue value)
@@ -159,6 +199,23 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayerMask);
     }
 
+    public bool CheckCieling()
+    {
+        return Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, groundLayerMask);
+    }
+
+    public void SetColliderNormal()
+    {
+        playerCollider.size = new Vector2(playerCollider.size.x, normalHeight);
+        playerCollider.offset = normalOffset;
+    }
+
+    public void SetColliderSlide()
+    {
+        playerCollider.size = new Vector2(playerCollider.size.x, slideHeight);
+        playerCollider.offset = slideOffset;
+    }
+
     void HandleAnimations()
     {
         bool isMoving = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
@@ -176,7 +233,6 @@ public class Player : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
 
         animator.SetFloat("yVelocity", rb.linearVelocity.y);
-
     }
 
     void Flip()
@@ -189,6 +245,7 @@ public class Player : MonoBehaviour
         {
             facingDirection = -1;
         }
+
         transform.localScale = new Vector3(facingDirection,1,1);
     }
 }
