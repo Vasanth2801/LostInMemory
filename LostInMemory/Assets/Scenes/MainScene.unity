@@ -1665,6 +1665,7 @@ MonoBehaviour:
   playerInput: {fileID: 1603056848}
   rb: {fileID: 1603056849}
   animator: {fileID: 637688232}
+  playerCollider: {fileID: 1603056851}
   jumpForce: 15
   jumpMultiplier: 0.5
   normalGravity: 6
@@ -1678,6 +1679,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
+  slideDuration: 0.5
+  slideSpeed: 12
+  isSliding: 0
+  normalHeight: 0
+  normalOffset: {x: 0, y: 0}
+  slideOffset: {x: 0, y: 0}
   moveInput: {x: 0, y: 0}
 --- !u!70 &1603056851
 CapsuleCollider2D:

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerInput playerInput;
     public Rigidbody2D rb;
     public Animator animator;
+    [SerializeField] CapsuleCollider2D playerCollider;
 
     [Header("Jump Settings")]
     public float jumpForce = 10f;
@@ -28,6 +29,16 @@ public class Player : MonoBehaviour
     public LayerMask groundLayerMask;
     [SerializeField] bool isGrounded;
 
+    [Header("SlideSettings")]
+    [SerializeField] private float slideDuration = 0.5f;
+    [SerializeField] private float slideSpeed = 12f;
+    [SerializeField] private bool isSliding = false;
+    private float slideHeight;
+    private float slideTimer;
+    public float normalHeight;
+    public Vector2 normalOffset;
+    public Vector2 slideOffset;
+
     [Header("Inputs")]
     public Vector2 moveInput;
     private bool runPressed;
@@ -41,13 +52,19 @@ public class Player : MonoBehaviour
     {
         Flip();
         HandleAnimations();
+        HandleSlide();
     }
 
     private void FixedUpdate()
     {
         ApplyGravity();
         CheckGrounded();
-        HandleMovement();
+
+        if (!isSliding)
+        {
+            HandleMovement();
+        }
+
         HandleJump();
     }
 
@@ -72,6 +89,28 @@ public class Player : MonoBehaviour
     public void OnRun(InputValue value)
     {
         runPressed = value.isPressed;
+    }
+
+    void HandleSlide()
+    {
+
+        if(isSliding)
+        {
+            slideTimer -= Time.deltaTime;
+
+            if(slideTimer <= 0)
+            {
+                isSliding = false;
+            }
+        }
+
+
+        if(isGrounded && runPressed && moveInput.y < -0.1f && !isSliding)
+        {
+            isSliding = true;
+            slideTimer = slideDuration;
+            rb.linearVelocity = new Vector2(slideSpeed * facingDirection,rb.linearVelocity.y);
+        }
     }
     
     void HandleMovement()
@@ -124,13 +163,15 @@ public class Player : MonoBehaviour
     {
         bool isMoving = Mathf.Abs(moveInput.x) > 0.1f && isGrounded;
 
-        animator.SetBool("isIdle", !isMoving && isGrounded);
+        animator.SetBool("isIdle", !isMoving && isGrounded && !isSliding);
 
-        animator.SetBool("isWalking", isMoving && !runPressed);
+        animator.SetBool("isWalking", isMoving && !runPressed && !isSliding);
 
-         animator.SetBool("isRunning", isMoving && runPressed);
+         animator.SetBool("isRunning", isMoving && runPressed && !isSliding);
 
         animator.SetBool("isJumping",rb.linearVelocity.y >0.1f);
+
+        animator.SetBool("isSliding", isSliding);
 
         animator.SetBool("isGrounded", isGrounded);
 
