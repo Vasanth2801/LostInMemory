@@ -1671,8 +1671,6 @@ MonoBehaviour:
   normalGravity: 6
   fallGravity: 9
   jumpGravity: 4
-  jumpPressed: 0
-  jumpReleased: 0
   groundCheck: {fileID: 1479688574}
   groundRadius: 0.5
   groundLayerMask:
@@ -1681,11 +1679,17 @@ MonoBehaviour:
   isGrounded: 0
   slideDuration: 0.5
   slideSpeed: 12
-  isSliding: 0
+  slideStopDuration: 0.2
   normalHeight: 0
   normalOffset: {x: 0, y: 0}
   slideOffset: {x: 0, y: 0}
+  isSliding: 0
+  ceilingCheck: {fileID: 0}
+  ceilingCheckRadius: 0.2
   moveInput: {x: 0, y: 0}
+  runPressed: 0
+  jumpPressed: 0
+  jumpReleased: 0
 --- !u!70 &1603056851
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

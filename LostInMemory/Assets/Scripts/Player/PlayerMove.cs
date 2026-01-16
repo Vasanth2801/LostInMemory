@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PlayerMove : PlayerState
+public class PlayerMove : PlayerState
 {
     public PlayerMove(Player player) : base(player) { }
 
@@ -14,7 +14,13 @@ public abstract class PlayerMove : PlayerState
     {
         base.Update();
 
-        if (Mathf.Abs(MoveInput.x) < 0.1f)
+        if(JumpPressed)
+        {
+            player.ChangeState(player.jumpState);
+
+        }
+
+        else if (Mathf.Abs(MoveInput.x) < 0.1f)
         {
             player.ChangeState(player.idleState);
         }

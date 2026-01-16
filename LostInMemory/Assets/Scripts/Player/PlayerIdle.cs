@@ -1,7 +1,6 @@
-using NUnit.Framework;
 using UnityEngine;
 
-public abstract class PlayerIdle : PlayerState
+public class PlayerIdle : PlayerState
 {
     public PlayerIdle(Player player) : base(player)
     {
@@ -17,6 +16,16 @@ public abstract class PlayerIdle : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if(JumpPressed)
+        {
+            JumpPressed = false;
+            player.ChangeState(player.jumpState);
+        }
+        else if(Mathf.Abs(MoveInput.x) > 0.1f)
+        {
+            player.ChangeState(player.moveState);
+        }
     }
 
     public override void Exit()
