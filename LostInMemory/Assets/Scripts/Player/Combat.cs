@@ -11,8 +11,8 @@ public class Combat : MonoBehaviour
     public LayerMask enemyLayer;
     public int attackDamage = 10;
     private float nextAttackTime;
+    public Animator hitFX;
     public bool canAttack => Time.time >= nextAttackTime;
-
 
     public void AttackAnimationFinished()
     {
@@ -29,7 +29,11 @@ public class Combat : MonoBehaviour
         nextAttackTime = Time.time + attackCooldown;
 
         Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayer);
+
+        if(enemy != null)
+        {
+            hitFX.Play("HitFX");
+            enemy.gameObject.GetComponent<Health>().ChangeHealth(-attackDamage);
+        }
     }
-
-
 }

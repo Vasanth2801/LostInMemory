@@ -3,9 +3,7 @@ using UnityEngine;
 public class PlayerIdle : PlayerState
 {
 
-    public PlayerIdle(Player player) : base(player)
-    {
-    }
+    public PlayerIdle(Player player) : base(player) { }
 
     public override void Enter()
     {
