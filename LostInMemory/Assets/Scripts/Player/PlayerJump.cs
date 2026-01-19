@@ -3,8 +3,7 @@ using UnityEngine;
 public class PlayerJump : PlayerState
 {
     public PlayerJump(Player player) : base(player) { }
-
-
+    
     public override void Enter()
     {
         base.Enter();

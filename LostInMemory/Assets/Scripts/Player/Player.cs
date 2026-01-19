@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [Header("PLayer Modular States")]
+    [Header("Player Modular States")]
 
     public PlayerState currentState;
 
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public PlayerSlide slideState;
 
+    public PlayerAttack attackState;
 
     [Header("Movement Settings")]
     public float walkSpeed = 5f;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     [SerializeField] CapsuleCollider2D playerCollider;
+    public Combat combat;
 
     [Header("Jump Settings")]
     public float jumpForce = 10f;
@@ -63,6 +65,7 @@ public class Player : MonoBehaviour
     public bool runPressed;
     public bool jumpPressed;
     public bool jumpReleased;
+    public bool attackPressed;
 
     private void Awake()
     {
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
         jumpState = new PlayerJump(this);
         slideState = new PlayerSlide(this);
         crouchState = new PlayerCrouch(this);
+        attackState = new PlayerAttack(this);
     }
 
     private void Start()
@@ -110,6 +114,11 @@ public class Player : MonoBehaviour
         currentState.Enter();   
     }
 
+    public void AttackAnimationFinished()
+    {
+        currentState.AttackAnimationFinished();
+    }
+
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
@@ -133,6 +142,10 @@ public class Player : MonoBehaviour
         runPressed = value.isPressed;
     }
 
+    public void OnAttack(InputValue value)
+    {
+        attackPressed = value.isPressed;
+    }
 
     public void ApplyGravity()
     {
@@ -155,8 +168,8 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayerMask);
     }
 
-    
-    public bool CheckCieling()
+      
+    public bool CheckCeiling()
     {
         return Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, groundLayerMask);
     }

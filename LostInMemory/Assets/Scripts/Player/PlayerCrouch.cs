@@ -20,7 +20,7 @@ public class PlayerCrouch : PlayerState
         {
             player.ChangeState(player.jumpState);
         }
-        else if(MoveInput.y > 0.1f && !player.CheckCieling())
+        else if(MoveInput.y > 0.1f && !player.CheckCeiling())
         {
             player.ChangeState(player.idleState);
         }
