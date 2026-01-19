@@ -1078,6 +1078,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Magic
   player: {fileID: 1603056850}
   spellCastRange: 7
+  spellCastCooldown: 2
+  playerRadius: 1.5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &645343800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2150,7 @@ MonoBehaviour:
   animator: {fileID: 637688232}
   playerCollider: {fileID: 1603056851}
   combat: {fileID: 637688233}
+  magic: {fileID: 637688234}
   jumpForce: 15
   jumpMultiplier: 0.5
   normalGravity: 6

@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     [SerializeField] CapsuleCollider2D playerCollider;
     public Combat combat;
+    public Magic magic;
 
     [Header("Jump Settings")]
     public float jumpForce = 10f;
@@ -154,7 +155,6 @@ public class Player : MonoBehaviour
     public void OnSpellCast(InputValue value)
     {
         spellCastPressed = value.isPressed;
-        Debug.Log("Spell Cast Pressed: " + spellCastPressed);
     }
 
     public void ApplyGravity()

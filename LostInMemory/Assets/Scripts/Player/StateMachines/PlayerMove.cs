@@ -13,7 +13,7 @@ public class PlayerMove : PlayerState
     {
         base.Update();
 
-        if(SpellCastPressed)
+        if(SpellCastPressed && magic.canCastSpell)
         {
             player.ChangeState(player.spellCastState);
         }
@@ -46,7 +46,7 @@ public class PlayerMove : PlayerState
 
         float speed = RunPressed ? player.runSpeed : player.walkSpeed;
         float targetSpeed = speed * MoveInput.x;
-        player.rb.linearVelocity = new Vector2(targetSpeed, player.rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(targetSpeed, rb.linearVelocity.y);
     }
 
     public override void Exit()

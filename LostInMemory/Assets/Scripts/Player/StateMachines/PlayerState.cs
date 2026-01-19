@@ -12,6 +12,8 @@ public abstract class PlayerState
 
     protected Combat combat;
 
+    protected Magic magic;
+
     protected bool JumpPressed
     {
       get => player.jumpPressed; 
@@ -37,6 +39,7 @@ public abstract class PlayerState
         this.animator = player.animator;
         this.rb = player.rb;
         combat = player.combat;
+        magic = player.magic;
     }
 
     public virtual void Enter() { }

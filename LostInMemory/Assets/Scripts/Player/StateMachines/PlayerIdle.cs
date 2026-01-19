@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerIdle : PlayerState
 {
-
     public PlayerIdle(Player player) : base(player) { }
 
     public override void Enter()
@@ -15,7 +14,7 @@ public class PlayerIdle : PlayerState
     {
         base.Update();
 
-        if(SpellCastPressed)
+        if(SpellCastPressed && magic.canCastSpell) 
         {
             player.ChangeState(player.spellCastState);
         }
