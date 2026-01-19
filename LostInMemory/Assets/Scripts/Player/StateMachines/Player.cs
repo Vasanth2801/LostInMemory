@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     public PlayerAttack attackState;
 
+    public  PlayerSpellCast spellCastState;
+
     [Header("Movement Settings")]
     public float walkSpeed = 5f;
     public float runSpeed = 8f;
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
     public bool jumpPressed;
     public bool jumpReleased;
     public bool attackPressed;
+    public bool spellCastPressed;
 
     private void Awake()
     {
@@ -75,6 +78,7 @@ public class Player : MonoBehaviour
         slideState = new PlayerSlide(this);
         crouchState = new PlayerCrouch(this);
         attackState = new PlayerAttack(this);
+        spellCastState = new PlayerSpellCast(this);
     }
 
     private void Start()
@@ -114,9 +118,9 @@ public class Player : MonoBehaviour
         currentState.Enter();   
     }
 
-    public void AttackAnimationFinished()
+    public void AnimationFinished()
     {
-        currentState.AttackAnimationFinished();
+        currentState.AnimationFinished();
     }
 
     public void OnMove(InputValue value)
@@ -147,6 +151,12 @@ public class Player : MonoBehaviour
         attackPressed = value.isPressed;
     }
 
+    public void OnSpellCast(InputValue value)
+    {
+        spellCastPressed = value.isPressed;
+        Debug.Log("Spell Cast Pressed: " + spellCastPressed);
+    }
+
     public void ApplyGravity()
     {
         if(rb.linearVelocity.y < -0.1f)
@@ -168,7 +178,6 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayerMask);
     }
 
-      
     public bool CheckCeiling()
     {
         return Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, groundLayerMask);

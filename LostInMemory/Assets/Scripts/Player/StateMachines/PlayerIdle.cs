@@ -15,7 +15,11 @@ public class PlayerIdle : PlayerState
     {
         base.Update();
 
-        if (AttackPressed && combat.canAttack)
+        if(SpellCastPressed)
+        {
+            player.ChangeState(player.spellCastState);
+        }
+        else if (AttackPressed && combat.canAttack)
         {
             player.ChangeState(player.attackState);
         }

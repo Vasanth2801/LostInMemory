@@ -27,6 +27,8 @@ public abstract class PlayerState
 
     protected bool AttackPressed => player.attackPressed;
 
+    protected bool SpellCastPressed => player.spellCastPressed;
+
     protected Vector2 MoveInput => player.moveInput;
 
     public PlayerState(Player player)
@@ -45,5 +47,5 @@ public abstract class PlayerState
 
     public virtual void FixedUpdate() { }
 
-    public virtual void AttackAnimationFinished() { }
+    public virtual void AnimationFinished() { }
 }

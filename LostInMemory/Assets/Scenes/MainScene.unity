@@ -939,6 +939,7 @@ GameObject:
   - component: {fileID: 637688231}
   - component: {fileID: 637688232}
   - component: {fileID: 637688233}
+  - component: {fileID: 637688234}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -1063,6 +1064,20 @@ MonoBehaviour:
     m_Bits: 128
   attackDamage: 10
   hitFX: {fileID: 968416210}
+--- !u!114 &637688234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637688229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2395d8a699341744b01c84605193eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Magic
+  player: {fileID: 1603056850}
+  spellCastRange: 7
 --- !u!1 &645343800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,6 +2170,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpReleased: 0
   attackPressed: 0
+  spellCastPressed: 0
 --- !u!70 &1603056851
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
