@@ -13,6 +13,14 @@ public class Magic : MonoBehaviour
     public bool canCastSpell => Time.time >= nextCastTime;
     private float nextCastTime;
 
+    [Header("Spark Variables")]
+    public float sparkRadius = 5f;
+    public int sparkDamage = 20;
+    public LayerMask enemyLayer;
+    public float sparkCooldown = 5f;
+
+    public GameObject sparkEffectPrefab;
+
     public void AnimationFinished()
     {
         player.AnimationFinished();
@@ -21,11 +29,17 @@ public class Magic : MonoBehaviour
 
     void CastSpell()
     {
-        Teleport();
+        //Teleport();
+        Spark();
     }
 
     void Teleport()
     {
+        if (!canCastSpell)
+        {
+            return;
+        }
+
         Vector2 direction = new Vector2(player.facingDirection, 0);
 
         Vector2 targetPosition = (Vector2)player.transform.position + direction * spellCastRange;
@@ -48,5 +62,36 @@ public class Magic : MonoBehaviour
         player.transform.position = targetPosition;
 
         nextCastTime = Time.time + spellCastCooldown;
+    }
+
+
+    void Spark()
+    {
+        if(!canCastSpell)
+        {
+            return;
+        }
+
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(player.transform.position, sparkRadius, enemyLayer);
+
+        if(enemies != null)
+        {
+            foreach (Collider2D enemy in enemies)
+            {
+                Health health = enemy.GetComponent<Health>();
+                if (health != null)
+                {
+                    health.ChangeHealth(-sparkDamage);
+                }
+
+                if(sparkEffectPrefab != null)
+                {
+                    GameObject newFX = Instantiate(sparkEffectPrefab, enemy.transform.position, Quaternion.identity);
+                    Destroy(newFX, 2f);
+                }
+            }
+
+            nextCastTime = Time.time + sparkCooldown;
+        }
     }
 }
