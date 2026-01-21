@@ -1284,6 +1284,7 @@ GameObject:
   - component: {fileID: 637688232}
   - component: {fileID: 637688233}
   - component: {fileID: 637688234}
+  - component: {fileID: 637688235}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -1421,14 +1422,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Magic
   player: {fileID: 1603056850}
-  currentSpell: {fileID: 11400000, guid: 2c61b5dd97e2fb64e933fbe7ff2e968b, type: 2}
-  sparkRadius: 5
-  sparkDamage: 20
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  sparkCooldown: 5
-  sparkEffectPrefab: {fileID: 7977059556972987481, guid: c87581ef270426a4bbd5d1f341c19fda, type: 3}
+  currentSpell: {fileID: 11400000, guid: 72500dcb8d442984f8b627737a2c9c31, type: 2}
+--- !u!114 &637688235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637688229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149d44486423f0a4d866f473261affeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  currentHealth: 0
+  maxHealth: 100
 --- !u!1 &645343800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2857,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1603056851}
   combat: {fileID: 637688233}
   magic: {fileID: 637688234}
+  health: {fileID: 637688235}
   jumpForce: 15
   jumpMultiplier: 0.5
   normalGravity: 6

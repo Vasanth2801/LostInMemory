@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8137aa231a6544680e9f4457bffc18, type: 3}
+  m_Name: HealLv.2
+  m_EditorClassIdentifier: Assembly-CSharp::HealSO
+  spellName: HealLv.2
+  spellIcon: {fileID: 0}
+  cooldownTime: 15
+  healAmount: 30
+  healEffectPrefab: {fileID: 1690901920194526036, guid: 088572329dcfd684884c8c6660181ac1, type: 3}

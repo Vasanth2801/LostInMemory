@@ -31,8 +31,11 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     [SerializeField] CapsuleCollider2D playerCollider;
+
+    [Header("Core Components")]
     public Combat combat;
     public Magic magic;
+    public Health health;
 
     [Header("Jump Settings")]
     public float jumpForce = 10f;
