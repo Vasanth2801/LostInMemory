@@ -280,7 +280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheets_7
+      name: Icon_Spark
       rect:
         serializedVersion: 2
         x: 32
@@ -852,7 +852,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheets_33
+      name: Icon_Heal
       rect:
         serializedVersion: 2
         x: 48
@@ -1351,6 +1351,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      Icon_Heal: 1644024011
+      Icon_Spark: -1115680064
       Icon_Teleport: 949247335
       spritesheets_0: -9055209025805820190
       spritesheets_1: -1252212102
@@ -1379,7 +1381,6 @@ TextureImporter:
       spritesheets_30: -1376275915
       spritesheets_31: 1265201192
       spritesheets_32: 198820511
-      spritesheets_33: 1644024011
       spritesheets_34: 1181107966
       spritesheets_35: 527997344
       spritesheets_36: -815198717
@@ -1403,7 +1404,6 @@ TextureImporter:
       spritesheets_53: 322928525
       spritesheets_54: -390570123
       spritesheets_6: 167787606
-      spritesheets_7: -1115680064
       spritesheets_8: 1487178064
       spritesheets_9: 965052174
   mipmapLimitGroupName: 

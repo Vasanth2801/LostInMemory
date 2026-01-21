@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1426f46b8d19a6549b3a5af853ab2e5b, type: 3}
   m_Name: TeleportLv.1
   m_EditorClassIdentifier: Assembly-CSharp::TelelportSO
-  spellName: TeleportLv.1
-  spellIcon: {fileID: 0}
+  itemName: TeleportScroll
+  itemIcon: {fileID: 949247335, guid: f09b83721697cc24582bcd905a5bde7f, type: 3}
   cooldownTime: 3
   spellCastRange: 5
   playerRadius: 1.5

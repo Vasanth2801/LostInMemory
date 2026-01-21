@@ -160,6 +160,22 @@ public class Player : MonoBehaviour
         spellCastPressed = value.isPressed;
     }
 
+    public void OnLeftShoulder(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            magic.PreviousSpell();
+        }
+    }
+
+    public void OnRightShoulder(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            magic.NextSpell();
+        }
+    }
+
     public void ApplyGravity()
     {
         if(rb.linearVelocity.y < -0.1f)

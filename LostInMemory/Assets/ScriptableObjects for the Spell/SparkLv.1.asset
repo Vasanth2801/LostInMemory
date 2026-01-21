@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75a7ffae7e5c754c8feadcd1004b8f8, type: 3}
   m_Name: SparkLv.1
   m_EditorClassIdentifier: Assembly-CSharp::SparkSO
-  spellName: SparkLv.1
-  spellIcon: {fileID: 0}
+  itemName: SparkScroll
+  itemIcon: {fileID: -1115680064, guid: f09b83721697cc24582bcd905a5bde7f, type: 3}
   cooldownTime: 5
   sparkRadius: 4
   sparkDamage: 10
