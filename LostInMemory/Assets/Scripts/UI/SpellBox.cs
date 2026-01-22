@@ -27,9 +27,9 @@ public class SpellBox : MonoBehaviour
 
             if(spellSO != null)
             {
-                coolDownOverlay.sprite = spellSO.itemIcon;
                 iconImage.sprite = spellSO.itemIcon;
                 iconImage.gameObject.SetActive(true);
+                coolDownOverlay.sprite = spellSO.itemIcon;
             }
             else
             {
@@ -55,7 +55,6 @@ public class SpellBox : MonoBehaviour
         {
             spellText.text = "";
         }
-
         spellText.enabled = active;
     }
 

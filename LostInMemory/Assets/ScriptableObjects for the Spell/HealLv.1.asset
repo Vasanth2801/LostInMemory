@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8137aa231a6544680e9f4457bffc18, type: 3}
   m_Name: HealLv.1
   m_EditorClassIdentifier: Assembly-CSharp::HealSO
-  itemName: HealScroll
+  itemName: HealLv.1
   itemIcon: {fileID: 1644024011, guid: f09b83721697cc24582bcd905a5bde7f, type: 3}
   cooldownTime: 4
   healAmount: 10
