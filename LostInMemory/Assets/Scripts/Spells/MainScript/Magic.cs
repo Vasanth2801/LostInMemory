@@ -23,7 +23,6 @@ public class Magic : MonoBehaviour
         HighlightSpell();
     }
 
-
     public void LearnSpell(SpellSO spell)
     {
         if(!availableSpells.Contains(spell))
@@ -82,5 +81,7 @@ public class Magic : MonoBehaviour
         CurrentSpell.Cast(player);
 
         nextCastTime = Time.time + CurrentSpell.cooldownTime;
+
+        spellUIManager.TriggerCooldown(CurrentSpell, CurrentSpell.cooldownTime);
     }
 }

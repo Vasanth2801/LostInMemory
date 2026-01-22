@@ -18,13 +18,25 @@ public class SpellUIManager : MonoBehaviour
                 spellBoxes[i].SetSpell(null);
             }
         }
-    }
+    }   
 
     public void HighlightSpellBox(SpellSO activeSpell)
     {
         foreach(SpellBox spellBox in spellBoxes)
         {
             spellBox.HighlightBox(spellBox.AssignedSpell == activeSpell);
+        }
+    }
+
+    public void TriggerCooldown(SpellSO spellSO,float coolDownTime)
+    {
+        foreach(SpellBox spellBox in spellBoxes)
+        {
+            if(spellBox.AssignedSpell == spellSO)
+            {
+                spellBox.TriggerCooldown(coolDownTime);
+                break;
+            }
         }
     }
 }
