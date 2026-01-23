@@ -1,11 +1,21 @@
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Singleton Instance")]
     public static GameManager Instance;
-    public Animator transition;
+
+    [Header("Graphics Settings")]
+    [SerializeField] private int qualityIndex;
+    [SerializeField] private bool isFullScreen;
+
+    [Header("Resolution Settings")]
+    public TMP_Dropdown resolutionDropdown;
+    private Resolution[] resolutions;
 
     private void Awake()
     {
@@ -20,18 +30,58 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Play()
+    private void Start()
     {
-        StartCoroutine(LoadScene(1));
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+
+        for(int i =0;i<resolutions.Length;i++)
+        {
+            string option = resolutions[i].width + " X " + resolutions[i].height;
+            options.Add(option);
+            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
     }
 
-    IEnumerator LoadScene(int levelIndex)
+    public void SetResolution(int resolutionIndex)
     {
-        transition.SetTrigger("Start");
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
 
-        yield return new WaitForSeconds(1);
+    public void SetQuality(int _qualityIndex)
+    {
+        qualityIndex = _qualityIndex;
+    }
 
-        SceneManager.LoadScene(levelIndex);
+    public void SetFullScreen(bool _isFullScreen)
+    {
+        isFullScreen = _isFullScreen;
+    }
+
+    public void ApplyGraphics()
+    {
+        PlayerPrefs.SetInt("QualityIndex", qualityIndex);
+        QualitySettings.SetQualityLevel(qualityIndex);
+
+        PlayerPrefs.SetInt("IsFullScreen", isFullScreen ? 1 : 0);
+        Screen.fullScreen = isFullScreen;
+    }
+
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
