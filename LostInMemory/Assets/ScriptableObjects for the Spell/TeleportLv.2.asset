@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1426f46b8d19a6549b3a5af853ab2e5b, type: 3}
   m_Name: TeleportLv.2
   m_EditorClassIdentifier: Assembly-CSharp::TelelportSO
-  spellName: TeleportLv.2
-  spellIcon: {fileID: 0}
+  itemName: 
+  itemIcon: {fileID: 0}
   cooldownTime: 9
   spellCastRange: 7
   playerRadius: 1.5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384

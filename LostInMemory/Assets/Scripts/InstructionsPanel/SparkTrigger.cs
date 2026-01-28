@@ -1,21 +1,22 @@
 using UnityEngine;
 
-public class JumpTrigger : MonoBehaviour
+public class SparkTrigger : MonoBehaviour
 {
-    public GameObject jumpPanel;
+    [SerializeField] GameObject sparkPanel;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            jumpPanel.SetActive(true);
+            sparkPanel.SetActive(true);
             Time.timeScale = 0f;
         }
     }
 
-    public void CloseJumpPanel()
+    public void CloseSparkPanel()
     {
-        jumpPanel.SetActive(false);
+        sparkPanel.SetActive(false);
         Time.timeScale = 1f;
         Destroy(gameObject);
     }
