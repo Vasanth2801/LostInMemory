@@ -7,8 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     public static bool isPaused = false;
 
-
-    private void Awake()
+    void Awake()
     {
         if(Instance == null)
         {
@@ -21,7 +20,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -49,7 +48,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
     }
-
+   
     public void MainMenu()
     {
         Time.timeScale = 1f;

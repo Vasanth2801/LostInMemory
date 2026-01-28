@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     [Header("Resolution Settings")]
     public TMP_Dropdown resolutionDropdown;
     private Resolution[] resolutions;
+
+    [Header("Save Settings")]
+    [SerializeField] private GameObject saveDataFile;
 
     private void Awake()
     {
@@ -39,11 +42,11 @@ public class GameManager : MonoBehaviour
 
         int currentResolutionIndex = 0;
 
-        for(int i =0;i<resolutions.Length;i++)
+        for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " X " + resolutions[i].height;
             options.Add(option);
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
@@ -77,7 +80,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("IsFullScreen", isFullScreen ? 1 : 0);
         Screen.fullScreen = isFullScreen;
     }
-
 
     public void Play()
     {

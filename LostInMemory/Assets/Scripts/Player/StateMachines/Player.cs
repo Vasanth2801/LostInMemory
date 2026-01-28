@@ -74,6 +74,10 @@ public class Player : MonoBehaviour
     public bool attackPressed;
     public bool spellCastPressed;
 
+    [Header("Debug")]
+    public int level = 3;
+    public int healthPoints = 100;
+
     private void Awake()
     {
         idleState = new PlayerIdle(this);
