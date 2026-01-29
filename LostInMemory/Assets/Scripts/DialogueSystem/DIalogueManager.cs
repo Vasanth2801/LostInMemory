@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DIalogueManager : MonoBehaviour
 {
@@ -47,6 +48,19 @@ public class DIalogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+    }
+
+    public void BlackSmith(Dialogue dialogue)
+    {
+        animator.SetBool("isOpen", false);
+        Debug.Log("Starting conversation with " + dialogue.characterName);
+        nameText.text = dialogue.characterName;
+        sentences.Clear();
+        foreach (string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+        DisplayNextSentence();
     }
 
     IEnumerator TypeSentence(string sentence)

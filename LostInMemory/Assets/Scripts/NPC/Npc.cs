@@ -11,12 +11,12 @@ public class Npc : MonoBehaviour
     public float wordSpeed;
     public bool isPlayerClose;
 
-    private void Start()
+    void Start()
     {
         dialogueText.text = "";
     }
 
-    private void Update()
+    void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && isPlayerClose)
         {
@@ -67,7 +67,7 @@ public class Npc : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
@@ -75,7 +75,7 @@ public class Npc : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {

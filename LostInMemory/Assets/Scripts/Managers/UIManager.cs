@@ -48,6 +48,43 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
     }
+
+    public void SaveData()
+    {
+        if(DataManager.instance != null)
+        {
+            DataManager.instance.SaveFromJson();
+        }
+        else
+        {
+            Debug.LogWarning("DataManager instance not found!");
+        }
+    }
+
+    public void LoadData()
+    {
+        if(DataManager.instance != null)
+        {
+            DataManager.instance.LoadFromJson();
+            Debug.Log("Data Loaded via UIManager");
+        }
+        else
+        {
+            Debug.LogWarning("DataManager instance not found!");
+        }
+    }
+
+    public void DeleteData()
+    {
+        if(DataManager.instance != null)
+        {
+            DataManager.instance.DeleteFromJson();
+        }
+        else
+        {
+            Debug.LogWarning("DataManager instance not found!");
+        }
+    }
    
     public void MainMenu()
     {

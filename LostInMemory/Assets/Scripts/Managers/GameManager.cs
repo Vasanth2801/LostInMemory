@@ -81,6 +81,35 @@ public class GameManager : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
+    public void LoadGame()
+    {
+        string filePath = Application.persistentDataPath + "/playerData.json";
+
+        if (File.Exists(filePath))
+        {
+            if (DataManager.instance == null)
+            {
+                GameObject dm = new GameObject("DataManager");
+                dm.AddComponent<DataManager>();
+            }
+
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.LoadData();
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                DataManager.instance.LoadFromJson();
+                SceneManager.LoadScene(1);
+            }
+        }
+        else
+        {
+            saveDataFile.SetActive(true);
+        }
+    }
+
     public void Play()
     {
         SceneManager.LoadScene(1);
