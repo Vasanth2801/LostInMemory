@@ -21,6 +21,10 @@ public class DialogueTrigger : MonoBehaviour
         {
             BlackSmith();
         }
+        else
+        {
+            return;
+        }
     }
 
     public void BlackSmith()
