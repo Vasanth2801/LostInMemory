@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerIdle : PlayerState
 {
@@ -20,6 +21,10 @@ public class PlayerIdle : PlayerState
         }
         else if (AttackPressed && combat.canAttack)
         {
+            if(EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             player.ChangeState(player.attackState);
         }
         else if (JumpPressed)

@@ -1,3 +1,4 @@
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class PlayerMove : PlayerState
@@ -19,6 +20,10 @@ public class PlayerMove : PlayerState
         }
         else if (AttackPressed && combat.canAttack)
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             player.ChangeState(player.attackState);
         }
         else if (JumpPressed)

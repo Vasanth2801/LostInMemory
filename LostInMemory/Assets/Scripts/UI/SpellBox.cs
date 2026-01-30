@@ -92,7 +92,6 @@ public class SpellBox : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = elapsed / halfDuration;
             iconImage.transform.localScale = Vector3.Lerp(normalScale, normalScale * popUpScale, t);
-
             yield return null;
         }
 

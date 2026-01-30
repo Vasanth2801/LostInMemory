@@ -13,6 +13,7 @@ public class Magic : MonoBehaviour
 
     public SpellSO CurrentSpell => availableSpells.Count > 0 ? availableSpells[currentSpellIndex] : null;
 
+    [Header("Cooldowns")]
     public Dictionary<SpellSO, float> spellCooldowns = new Dictionary<SpellSO, float>();
 
     private void Start()
@@ -34,7 +35,7 @@ public class Magic : MonoBehaviour
 
         if(!spellCooldowns.ContainsKey(spell))
         {
-            spellCooldowns[spell] = 0f;
+            spellCooldowns[spell] = 0;
         }
 
         if (availableSpells.Count > 0)
