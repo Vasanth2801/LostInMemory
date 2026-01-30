@@ -10,10 +10,13 @@ public class Npc : MonoBehaviour
     private int index = 0;
     public float wordSpeed;
     public bool isPlayerClose;
+    public string npcName;
+    public TextMeshProUGUI nameText;
 
     void Start()
     {
         dialogueText.text = "";
+        nameText.text = npcName;
     }
 
     void Update()
@@ -41,7 +44,10 @@ public class Npc : MonoBehaviour
     {
         dialogueText.text = "";
         index = 0;
-        dialoguePanel.SetActive(false);
+        if (dialoguePanel != null)
+        {
+            dialoguePanel.SetActive(false);
+        }
     }
 
     public void NextLine()
