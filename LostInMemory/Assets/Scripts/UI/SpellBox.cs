@@ -17,6 +17,10 @@ public class SpellBox : MonoBehaviour
     Vector3 normalScale = new Vector3(1f, 1f, 1f);
     Vector3 highlightScale = new Vector3(1.2f, 1.2f, 1.2f);
 
+    [Header("Pop up Settings")]
+    [SerializeField] private float popUpDuration = 0.5f;
+    [SerializeField] private float popUpScale = 1.3f;
+
     public SpellSO AssignedSpell { get; private set; }
 
     public void SetSpell(SpellSO spellSO)
@@ -47,7 +51,7 @@ public class SpellBox : MonoBehaviour
         iconImage.color = active ? highlightColor : normalColor;
         iconImage.transform.localScale = active ? highlightScale : normalScale;
 
-        if(AssignedSpell != null)
+        if(active && AssignedSpell != null)
         {
             spellText.text = AssignedSpell.itemName;
         }
@@ -75,5 +79,30 @@ public class SpellBox : MonoBehaviour
             yield return null;
         }
         coolDownOverlay.fillAmount = 0f;
+        yield return StartCoroutine(PopUpEffect());
+    }
+
+    IEnumerator PopUpEffect()
+    {
+        float elapsed = 0f;
+        float halfDuration = popUpDuration / 2f;
+
+        if(elapsed < halfDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / halfDuration;
+            iconImage.transform.localScale = Vector3.Lerp(normalScale, normalScale * popUpScale, t);
+
+            yield return null;
+        }
+
+        elapsed = 0f;
+        if (elapsed < halfDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / halfDuration;
+            iconImage.transform.localScale = Vector3.Lerp(normalScale, normalScale, t);
+            yield return null;
+        }
     }
 }

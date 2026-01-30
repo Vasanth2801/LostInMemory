@@ -13,9 +13,7 @@ public class Magic : MonoBehaviour
 
     public SpellSO CurrentSpell => availableSpells.Count > 0 ? availableSpells[currentSpellIndex] : null;
 
-    [Header("CoolDown")]
-    public bool canCastSpell => Time.time >= nextCastTime;
-    private float nextCastTime;
+    public Dictionary<SpellSO, float> spellCooldowns = new Dictionary<SpellSO, float>();
 
     private void Start()
     {
@@ -34,7 +32,12 @@ public class Magic : MonoBehaviour
 
         spellUIManager.ShowSpell(availableSpells);
 
-        if(availableSpells.Count > 0)
+        if(!spellCooldowns.ContainsKey(spell))
+        {
+            spellCooldowns[spell] = 0f;
+        }
+
+        if (availableSpells.Count > 0)
         {
             HighlightSpell();
         }
@@ -71,16 +74,21 @@ public class Magic : MonoBehaviour
         CastSpell();
     }
 
+    public bool canCastSpell(SpellSO spell)
+    {
+        return Time.time >= spellCooldowns[spell];
+    }
+
     void CastSpell()
     {
-        if(!canCastSpell || CurrentSpell == null)
+        if(!canCastSpell(CurrentSpell) || CurrentSpell == null)
         {
             return; 
         }
 
         CurrentSpell.Cast(player);
 
-        nextCastTime = Time.time + CurrentSpell.cooldownTime;
+        spellCooldowns[CurrentSpell] = Time.time + CurrentSpell.cooldownTime;
 
         spellUIManager.TriggerCooldown(CurrentSpell, CurrentSpell.cooldownTime);
     }

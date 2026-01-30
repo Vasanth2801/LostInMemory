@@ -13,7 +13,7 @@ public class PlayerMove : PlayerState
     {
         base.Update();
 
-        if(SpellCastPressed && magic.canCastSpell)
+        if(SpellCastPressed && magic.canCastSpell(magic.CurrentSpell))
         {
             player.ChangeState(player.spellCastState);
         }
