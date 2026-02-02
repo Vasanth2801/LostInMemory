@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SparkSO
   itemName: SparkLv.1
   itemIcon: {fileID: -1115680064, guid: f09b83721697cc24582bcd905a5bde7f, type: 3}
+  itemSprite: {fileID: -5164599079202685034, guid: 7e12bb34d42740c4e845c227e9f28c5d, type: 3}
   cooldownTime: 5
   sparkRadius: 4
   sparkDamage: 10

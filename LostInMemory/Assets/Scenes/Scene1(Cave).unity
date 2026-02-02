@@ -3344,9 +3344,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 459633834}
-  collectable: {fileID: 11400000, guid: d25268a8f8887e34fa477224d499a550, type: 2}
+  lootTable:
+  - {fileID: 11400000, guid: d25268a8f8887e34fa477224d499a550, type: 2}
+  - {fileID: 11400000, guid: 8ffef2917ba2bcf4490b1dea3c0e8b22, type: 2}
   lootPrefab: {fileID: 5703164905338426082, guid: e3976a4ecb9bdb049b1dbda6b99f6f30, type: 3}
   spawnDelay: 0.25
+  launchForce: 20
 --- !u!1 &465796191
 GameObject:
   m_ObjectHideFlags: 0
