@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 83c89ea1fd7ddf14dbfabd9648c1d89c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -585116866070169996
+    second: Rat archer sprite sheet Shoot_0
+  - first:
+      213: -1270004382281532376
+    second: Rat archer sprite sheet Shoot_1
+  - first:
+      213: -5717211736739042310
+    second: Rat archer sprite sheet Shoot_2
+  - first:
+      213: -691556138418903836
+    second: Rat archer sprite sheet Shoot_3
+  - first:
+      213: 6062553949548932168
+    second: Rat archer sprite sheet Shoot_4
+  - first:
+      213: -1665597472372320807
+    second: Rat archer sprite sheet Shoot_5
+  - first:
+      213: -871333867362889373
+    second: Rat archer sprite sheet Shoot_6
+  - first:
+      213: -6531554520744127102
+    second: Rat archer sprite sheet Shoot_7
+  - first:
+      213: 7794664117077960301
+    second: Rat archer sprite sheet Shoot_8
+  - first:
+      213: 5812305174097242155
+    second: Rat archer sprite sheet Shoot_9
+  - first:
+      213: -8298168975661795548
+    second: Rat archer sprite sheet Shoot_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4763cc57f4f31e7f0800000000000000
+      internalID: -585116866070169996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 15
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c7bea3eb9006ee0800000000000000
+      internalID: -1270004382281532376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 15
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afba9fd673268a0b0800000000000000
+      internalID: -5717211736739042310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e4ec4b2b591766f0800000000000000
+      internalID: -691556138418903836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 15
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c618242b4822450800000000000000
+      internalID: 6062553949548932168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_5
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 15
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d595707ceb92e8e0800000000000000
+      internalID: -1665597472372320807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 15
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3615113d67668e3f0800000000000000
+      internalID: -871333867362889373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_7
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 15
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28513ffd4c14b55a0800000000000000
+      internalID: -6531554520744127102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_8
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 15
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d666ae177b53c2c60800000000000000
+      internalID: 7794664117077960301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_9
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 15
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b282b3cc2c479a050800000000000000
+      internalID: 5812305174097242155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat archer sprite sheet Shoot_10
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 15
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427f28f384bf6dc80800000000000000
+      internalID: -8298168975661795548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rat archer sprite sheet Shoot_0: -585116866070169996
+      Rat archer sprite sheet Shoot_1: -1270004382281532376
+      Rat archer sprite sheet Shoot_10: -8298168975661795548
+      Rat archer sprite sheet Shoot_2: -5717211736739042310
+      Rat archer sprite sheet Shoot_3: -691556138418903836
+      Rat archer sprite sheet Shoot_4: 6062553949548932168
+      Rat archer sprite sheet Shoot_5: -1665597472372320807
+      Rat archer sprite sheet Shoot_6: -871333867362889373
+      Rat archer sprite sheet Shoot_7: -6531554520744127102
+      Rat archer sprite sheet Shoot_8: 7794664117077960301
+      Rat archer sprite sheet Shoot_9: 5812305174097242155
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

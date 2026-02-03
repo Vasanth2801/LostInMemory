@@ -4,22 +4,16 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [Header("Player Modular States")]
-
     public PlayerState currentState;
-
     public PlayerIdle idleState;
-
     public PlayerMove moveState;
-
     public PlayerJump jumpState;
-
     public PlayerCrouch crouchState;
-
     public PlayerSlide slideState;
-
     public PlayerAttack attackState;
-
     public  PlayerSpellCast spellCastState;
+    public PlayerWallJumpState wallJumpState;
+    public PlayerWallSlideState wallSlideState;
 
     [Header("Movement Settings")]
     public float walkSpeed = 5f;
@@ -49,6 +43,12 @@ public class Player : MonoBehaviour
     public float groundRadius;
     public LayerMask groundLayerMask;
     public bool isGrounded;
+
+    [Header("WallCheckSettings")]
+    public Transform wallCheck;
+    public float wallRadius;
+    public LayerMask wallLayerMask;
+    public bool isTouchingWall;
 
     [Header("SlideSettings")]
     public  float slideDuration = 0.5f;
@@ -87,6 +87,8 @@ public class Player : MonoBehaviour
         crouchState = new PlayerCrouch(this);
         attackState = new PlayerAttack(this);
         spellCastState = new PlayerSpellCast(this);
+        wallJumpState = new PlayerWallJumpState(this);
+        wallSlideState = new PlayerWallSlideState(this);
     }
 
     private void Start()
@@ -112,6 +114,7 @@ public class Player : MonoBehaviour
         currentState.FixedUpdate();
 
         CheckGrounded();
+        CheckWalls();
  
     }
 
@@ -138,14 +141,17 @@ public class Player : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if(value.isPressed)
+        if (isGrounded && !CheckCeiling() || isTouchingWall)
         {
-            jumpPressed = true;
-            jumpReleased = false;
-        }
-        else
-        {
-            jumpReleased = true;
+            if (value.isPressed)
+            {
+                jumpPressed = true;
+                jumpReleased = false;
+            }
+            else
+            {
+                jumpReleased = true;
+            }
         }
     }
 
@@ -201,6 +207,11 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayerMask);
     }
 
+    void CheckWalls()
+    {
+        isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, wallRadius, wallLayerMask);
+    }
+
     public bool CheckCeiling()
     {
         return Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, groundLayerMask);
@@ -227,15 +238,24 @@ public class Player : MonoBehaviour
 
     void Flip()
     {
-        if(moveInput.x > 0.1f)
+        if (moveInput.x > 0.1f)
         {
             facingDirection = 1;
         }
-        if(moveInput.x < -0.1f)
+        if (moveInput.x < -0.1f)
         {
             facingDirection = -1;
         }
 
-        transform.localScale = new Vector3(facingDirection,1,1);
+        transform.localScale = new Vector3(facingDirection, 1, 1);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(wallCheck.position,wallRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position,groundRadius);
     }
 }
