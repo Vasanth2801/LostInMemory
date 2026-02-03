@@ -9,6 +9,7 @@ public class ArcherRat : MonoBehaviour
 
     [Header("References")]
     private Rigidbody2D rb;
+    public Health health;
 
     [Header("Distance for the enemy for shoot")]
     [SerializeField] float distanceToShoot = 5f;
@@ -20,7 +21,7 @@ public class ArcherRat : MonoBehaviour
 
     [Header("References for bullet and firePoint")]
     [SerializeField] Transform firePoint;
-    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject arrowPrefab;
 
     void Awake()
     {
@@ -40,7 +41,7 @@ public class ArcherRat : MonoBehaviour
             RotateTowardsTarget();
         }
 
-        if(Vector2.Distance(transform.position,target.position) <= distanceToShoot)
+        if (Vector2.Distance(transform.position, target.position) <= distanceToShoot)
         {
             Shoot();
         }
@@ -50,7 +51,7 @@ public class ArcherRat : MonoBehaviour
     {
         if(timer <= 0)
         {
-            ObjectPooling.instance.SpawnPool("Arrow",firePoint.position,firePoint.rotation);
+            Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
             timer = fireRate;
         }
         else
@@ -80,7 +81,30 @@ public class ArcherRat : MonoBehaviour
     {
         Vector2 direction = target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
+        Quaternion q = Quaternion.Euler(0, 0, angle);
         transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotationSpeed);
+    }
+
+    private void OnEnable()
+    {
+        health.onDamaged += HandleDamaged;
+        health.OnDeath += HandleDeath;
+    }
+
+    private void OnDisable()
+    {
+        health.onDamaged -= HandleDamaged;
+        health.OnDeath -= HandleDeath;
+    }
+
+    void HandleDamaged()
+    {
+        Debug.Log("Attack Taken");
+    }
+
+    void HandleDeath()
+    {
+        Debug.Log("Death Happenend");
+        Destroy(gameObject);
     }
 }
